@@ -1,0 +1,30 @@
+# MindPulse Hub — Team Project Mind Guard
+# Install:  pip install -r requirements.txt
+# Run:      streamlit run mindpulse_app.py
+
+# --- Core app (required) ---
+streamlit>=1.42
+pandas>=2.0
+plotly>=5.20
+requests>=2.31
+numpy>=1.26
+Pillow>=10.0
+tzdata>=2024.1            # Dubai time zone on Windows / cloud servers
+
+# --- AI features (app still runs if any of these fail to install) ---
+google-genai>=1.0         # Gemini conversational counselor
+scikit-learn>=1.4         # live Logistic Regression replica (needs student_stress_data.csv next to the app)
+openpyxl>=3.1             # lets the replica read student_stress_data.xlsx
+opencv-python-headless>=4.9   # basic face/smile fallback for the emotion scanner
+deepface>=0.0.93          # deep-learning facial emotion detection (installs TensorFlow, ~600 MB)
+tf-keras>=2.16            # required by DeepFace on TensorFlow 2.16+
+
+# --- Cloud sync (only needed once you add Supabase or Google Sheets secrets) ---
+# supabase>=2.4
+# gspread>=6.0
+# google-auth>=2.29
+
+# Streamlit Community Cloud note: if DeepFace fails with "libGL.so.1" errors,
+# add a packages.txt file next to the app containing the two lines:
+#   libgl1
+#   libglib2.0-0
